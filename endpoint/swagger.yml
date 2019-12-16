@@ -1,0 +1,39 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger ReST Article
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+paths:
+  /src/driver/flames/flames{male},{female}:
+    get:
+      operationId: src.driver.flames.flames.r_pred
+      tags:
+        - flames
+      summary: Read the names of male and female
+      description: Read the names of the two people
+      parameters:
+        - name: male
+          in: path
+          type: string
+          description: provides male name
+          required: true
+        - name: female
+          in: path
+          type: string
+          description: provides female name
+          required: true
+      responses:
+        200:
+          description: Successfully revealed the relationship status
+          schema:
+            type: string
+            items:
+              properties:
+                pow_value:
+                  type: string
